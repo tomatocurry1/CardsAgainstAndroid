@@ -7,7 +7,7 @@ public class Card {
     String Type;
     String Text;
 
-    Public Card(String type, String text)
+    public Card(String type, String text)
     {
         Type = type;
         Text = text;

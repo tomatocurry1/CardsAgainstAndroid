@@ -49,5 +49,9 @@ public class GamePage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void initializeHand(){
+
+    }
+
 
 }
