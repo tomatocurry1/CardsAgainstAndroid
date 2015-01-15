@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <fragment
+        android:layout_width="13dp"
+        android:layout_height="match_parent"
+        android:name="lelee.cardsaganistandroid.PlayerList"
+        android:id="@+id/player_list_fragment"
+        android:layout_gravity="center_vertical" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="279dp">
+
+        </RelativeLayout>
+
+        <fragment
+            android:id="@+id/player_hand_fragment"
+            android:name="lelee.cardsaganistandroid.PlayerHand"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
