@@ -1,5 +1,6 @@
 package lelee.cardsaganistandroid;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -37,5 +38,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void gameStart(Menu menu){
+        Intent intent = new Intent(main.this, GamePage.class);
+        startActivity(intent);
+        finish();
     }
 }
