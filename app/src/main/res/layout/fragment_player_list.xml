@@ -7,5 +7,6 @@
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_gravity="center_horizontal|top"></TableLayout>
+        android:layout_gravity="center_horizontal|top"
+        android:background="#7A7A7A"></TableLayout>
 </FrameLayout>
