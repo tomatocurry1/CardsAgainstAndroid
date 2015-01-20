@@ -1,4 +1,5 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
@@ -9,7 +10,8 @@
         android:layout_height="match_parent"
         android:name="lelee.cardsaganistandroid.PlayerList"
         android:id="@+id/player_list_fragment"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        tools:layout="@layout/fragment_player_list" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -27,7 +29,8 @@
             android:name="lelee.cardsaganistandroid.PlayerHand"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            tools:layout="@layout/fragment_card" />
 
     </LinearLayout>
 
