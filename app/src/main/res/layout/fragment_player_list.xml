@@ -8,5 +8,15 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center_horizontal|top"
-        android:background="#7A7A7A"></TableLayout>
+        android:background="#FFCC00">
+
+
+        </TableLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_gravity="left|top"
+        android:onClick="togglePosition"/>
 </FrameLayout>

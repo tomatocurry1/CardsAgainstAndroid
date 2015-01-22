@@ -11,9 +11,17 @@ import android.view.ViewGroup;
 
 
 public class PlayerList extends Fragment {
+    boolean movingDone = true;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_player_list, container, false);
+    }
+
+    public void togglePosition(View v){
+        if(movingDone!=true)
+            return;
+
+
     }
 }
