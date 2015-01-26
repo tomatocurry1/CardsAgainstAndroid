@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.parse.ParseObject;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -36,6 +38,14 @@ public class GamePage extends ActionBarActivity {
         setContentView(R.layout.fragment_game_page);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         readFromFile();
+
+        Bundle b = getIntent().getExtras();
+        String playerName = b.getString("playerName");
+
+        ParseObject gameScore = new ParseObject("GameScore");
+        gameScore.put("score", 1337);
+        gameScore.put("playerName",playerName);
+        gameScore.saveInBackground();
     }
 
     private void readFromFile() {
