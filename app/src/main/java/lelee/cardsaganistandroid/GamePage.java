@@ -40,7 +40,7 @@ public class GamePage extends ActionBarActivity {
 
     private void readFromFile() {
         whiteCards = new ArrayList<String>();
-        
+
         try {
             InputStream inputStream = getAssets().open("wcards.txt");
 
