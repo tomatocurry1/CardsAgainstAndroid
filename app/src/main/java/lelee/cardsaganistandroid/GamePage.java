@@ -69,7 +69,7 @@ public class GamePage extends ActionBarActivity {
         } catch (IOException e) {
             Log.e("txt file reading error", "Can not read file: " + e.toString());
         }
-    return;
+        return;
     }
 
     @Override

@@ -4,16 +4,20 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -62,18 +66,26 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = new Intent(MainActivity.this, GamePage.class);
         Bundle b = new Bundle();
         b.putString("playerName", mEdit.getText().toString());
+        intent.putExtras(b);
+
+        final ParseObject player = new ParseObject("Users");
+        player.put("name", b.getString("playerName"));
+        player.put("points", 0);
+        player.put("dealtCard", null);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("GameScore");
-        query.getInBackground("xWMyZ4YEGZ", new GetCallback<ParseObject>() {
-            public void done(ParseObject object, ParseException e) {
+        query.whereEqualTo("isCzar", true);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> scoreList, ParseException e) {
                 if (e == null) {
-                    // object will be your game score
+                    player.put("isCzar", false);
                 } else {
-                    // something went wrong
+                    player.put("isCzar", true);
                 }
+                player.saveInBackground();
             }
         });
-        intent.putExtras(b);
+
         startActivity(intent);
         finish();
     }
