@@ -3,6 +3,7 @@ package lelee.cardsaganistandroid;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.parse.ParseObject;
 
@@ -30,6 +33,9 @@ import static java.security.AccessController.getContext;
 
 public class GamePage extends ActionBarActivity {
     public ArrayList<String> whiteCards;
+    private DrawerLayout drawerLayout;
+    private ListView drawerList;
+    private String[] players;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +43,11 @@ public class GamePage extends ActionBarActivity {
         Intent intent = getIntent();
         setContentView(R.layout.fragment_game_page);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        players = new String[]{"this","is","a","list"};
+        drawerLayout = (DrawerLayout)findViewById(R.id.drawerLayout);
+        drawerList = (ListView) findViewById(R.id.drawerList);
+        drawerList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,players));
+
         readFromFile();
 
         Bundle b = getIntent().getExtras();
@@ -46,6 +57,10 @@ public class GamePage extends ActionBarActivity {
         gameScore.put("score", 1337);
         gameScore.put("playerName",playerName);
         gameScore.saveInBackground();
+    }
+
+    private void updateScores(String[] new_players , int[] new_scores){
+
     }
 
     private void readFromFile() {
