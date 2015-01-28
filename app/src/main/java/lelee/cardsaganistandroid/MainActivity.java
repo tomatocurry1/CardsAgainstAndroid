@@ -2,14 +2,16 @@ package lelee.cardsaganistandroid;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -24,20 +26,16 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Parse.enableLocalDatastore(this);
-
-        Parse.initialize(this, "9YFp8fysZrbhMeTLgTxpR7LjnDcEHyaQpHpSn5sK", "HOYpty0AGdpQ4OX8mWFVNUAzpbCqTFFRAG9PDuNo");
-
         setContentView(R.layout.activity_main);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "9YFp8fysZrbhMeTLgTxpR7LjnDcEHyaQpHpSn5sK", "HOYpty0AGdpQ4OX8mWFVNUAzpbCqTFFRAG9PDuNo");
 
-
-
+        //testing
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
-
     }
 
 
